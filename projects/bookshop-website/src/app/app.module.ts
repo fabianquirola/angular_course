@@ -10,6 +10,9 @@ import { SearchComponent } from './global/search/search.component';
 import { UtilNavComponent } from './global/util-nav/util-nav.component';
 import { MenuComponent } from './global/menu/menu.component';
 import { FooterComponent } from './global/footer/footer.component';
+import { HomeComponent } from './home/home.component';
+import { HeroComponent } from './hero/hero.component';
+import { ShopFeaturesComponent } from './shop-features/shop-features.component';
 
 @NgModule({
   declarations: [
@@ -19,7 +22,10 @@ import { FooterComponent } from './global/footer/footer.component';
     SearchComponent,
     UtilNavComponent,
     MenuComponent,
-    FooterComponent
+    FooterComponent,
+    HomeComponent,
+    HeroComponent,
+    ShopFeaturesComponent
   ],
   imports: [
     BrowserModule,
