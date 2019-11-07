@@ -2,5 +2,128 @@
   "$schema": "./node_modules/@angular/cli/lib/config/schema.json",
   "version": 1,
   "newProjectRoot": "projects",
-  "projects": {}
+  "projects": {
+    "bookshop-website": {
+      "projectType": "application",
+      "schematics": {
+        "@schematics/angular:component": {
+          "style": "scss"
+        }
+      },
+      "root": "projects/bookshop-website",
+      "sourceRoot": "projects/bookshop-website/src",
+      "prefix": "app",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:browser",
+          "options": {
+            "outputPath": "dist/bookshop-website",
+            "index": "projects/bookshop-website/src/index.html",
+            "main": "projects/bookshop-website/src/main.ts",
+            "polyfills": "projects/bookshop-website/src/polyfills.ts",
+            "tsConfig": "projects/bookshop-website/tsconfig.app.json",
+            "aot": false,
+            "assets": [
+              "projects/bookshop-website/src/favicon.ico",
+              "projects/bookshop-website/src/assets"
+            ],
+            "styles": [
+              "projects/bookshop-website/src/styles.scss"
+            ],
+            "scripts": []
+          },
+          "configurations": {
+            "production": {
+              "fileReplacements": [
+                {
+                  "replace": "projects/bookshop-website/src/environments/environment.ts",
+                  "with": "projects/bookshop-website/src/environments/environment.prod.ts"
+                }
+              ],
+              "optimization": true,
+              "outputHashing": "all",
+              "sourceMap": false,
+              "extractCss": true,
+              "namedChunks": false,
+              "aot": true,
+              "extractLicenses": true,
+              "vendorChunk": false,
+              "buildOptimizer": true,
+              "budgets": [
+                {
+                  "type": "initial",
+                  "maximumWarning": "2mb",
+                  "maximumError": "5mb"
+                },
+                {
+                  "type": "anyComponentStyle",
+                  "maximumWarning": "6kb",
+                  "maximumError": "10kb"
+                }
+              ]
+            }
+          }
+        },
+        "serve": {
+          "builder": "@angular-devkit/build-angular:dev-server",
+          "options": {
+            "browserTarget": "bookshop-website:build"
+          },
+          "configurations": {
+            "production": {
+              "browserTarget": "bookshop-website:build:production"
+            }
+          }
+        },
+        "extract-i18n": {
+          "builder": "@angular-devkit/build-angular:extract-i18n",
+          "options": {
+            "browserTarget": "bookshop-website:build"
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "projects/bookshop-website/src/test.ts",
+            "polyfills": "projects/bookshop-website/src/polyfills.ts",
+            "tsConfig": "projects/bookshop-website/tsconfig.spec.json",
+            "karmaConfig": "projects/bookshop-website/karma.conf.js",
+            "assets": [
+              "projects/bookshop-website/src/favicon.ico",
+              "projects/bookshop-website/src/assets"
+            ],
+            "styles": [
+              "projects/bookshop-website/src/styles.scss"
+            ],
+            "scripts": []
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "projects/bookshop-website/tsconfig.app.json",
+              "projects/bookshop-website/tsconfig.spec.json",
+              "projects/bookshop-website/e2e/tsconfig.json"
+            ],
+            "exclude": [
+              "**/node_modules/**"
+            ]
+          }
+        },
+        "e2e": {
+          "builder": "@angular-devkit/build-angular:protractor",
+          "options": {
+            "protractorConfig": "projects/bookshop-website/e2e/protractor.conf.js",
+            "devServerTarget": "bookshop-website:serve"
+          },
+          "configurations": {
+            "production": {
+              "devServerTarget": "bookshop-website:serve:production"
+            }
+          }
+        }
+      }
+    }},
+  "defaultProject": "bookshop-website"
 }
