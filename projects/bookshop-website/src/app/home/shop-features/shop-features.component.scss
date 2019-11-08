@@ -1,0 +1,31 @@
+.bs-shop-features{
+  background: var(--light);
+  box-shadow: 3px 5px 21px rgba(35, 35, 35, 0.15);
+}
+.bs-shop-features__list{
+  display: flex;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+
+}
+
+.bs-shop-features__item{
+  border: 1px solid var(--border);
+  & + &{
+    border-width: 1px 1px 1px 0;
+  }
+}
+
+
+
+.bs-shop-feature{
+  display: flex;
+  align-items: center;
+  margin: 0;
+  padding: 24px;
+
+  figcaption{
+    margin-left: 24px;
+  }
+}
