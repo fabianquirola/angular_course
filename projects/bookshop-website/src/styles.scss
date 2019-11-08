@@ -2,6 +2,10 @@
 $font-family-base:"Montserrrat",sans-serif;
 @import "bootstrap";
 
+:root {
+  --border: #e1e1e1;
+}
+
 .bs-container{
     max-width:1200px ;
     margin : 0 auto;

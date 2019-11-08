@@ -1,1 +1,16 @@
-<p>shop-features works!</p>
+<section class="bs-shop-features">
+  <div class="bs-container">
+      <ul class="bs-shop-features__list">
+          <li class="bs-shop-features__item" *ngFor="let item of features" >
+            <figure class="bs-shop-feature">
+              <fa-icon [icon]="item.icon"></fa-icon>
+              <figcaption>
+                <h4>{{item.title}}</h4>
+                <p>{{item.text}}</p>
+              </figcaption>
+            </figure>
+
+          </li>
+        </ul>
+  </div>
+</section>

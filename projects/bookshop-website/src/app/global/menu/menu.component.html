@@ -1,23 +1,8 @@
 <nav class='bs-menu'>
     <div class ='bs-container'>
           <ul class="nav justify-content-center">
-                  <li class="nav-item">
-                    <a class="nav-link active" href="/home">Home</a>
-                  </li>
-                  <li class="nav-item">
-                    <a class="nav-link" href="/books">Books</a>
-                  </li>
-                  <li class="nav-item">
-                    <a class="nav-link" href="/magazines">Magazines</a>
-                  </li>
-                  <li class="nav-item">
-                    <a class="nav-link" href="/Textbooks">Textbooks</a>
-                  </li>
-                  <li class="nav-item">
-                          <a class="nav-link" href="/audiobooks">Audiobooks</a>
-                  </li>
-                  <li class="nav-item">
-                          <a class="nav-link" href="/recommended">Recommended</a>
+                  <li class="nav-item" *ngFor="let item of menuItems" >
+                    <a class="nav-link" [href]="item.path">{{item.label}}</a>
                   </li>
                 </ul>
 
