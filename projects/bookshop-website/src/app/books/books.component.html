@@ -1,1 +1,29 @@
-<p>books works!</p>
+<section class="bs-books">
+    <div class="bs-container">
+        <ul class="bs-books__list">
+            <li class="bs-books__item" *ngFor="let book of books">
+                <figure class="bs-book">
+                    <img [src]="book.image" class="bs-book__image" />
+                    <figcaption class="bs-book__info">
+                        <h3 class="bs-book__title">{{ book.title }}</h3>
+                        <p class="bs-book__author">{{ book.author }}</p>
+                        <div class="bs-book__details">
+                            <span class="bs-book__price">{{ book.price | currency :'$'}}</span>
+
+
+                        <span class="bs-book__rating"><app-rating [value]='book.rating'></app-rating></span>
+
+                        <span class="bs-book__reviews">{{ book.reviews }} reviews</span>
+
+
+
+                        </div>
+                        <p class="bs-book__date">{{ book.publishedDate | date:'MM-yyyy' }}</p>
+                        <p class="bs-book__description">{{ book.description }}</p>
+                        <button class="btn btn-primary">Add to Cart</button>
+                    </figcaption>
+                </figure>
+            </li>
+        </ul>
+    </div>
+</section>

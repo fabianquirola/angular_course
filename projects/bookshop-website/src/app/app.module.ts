@@ -11,6 +11,8 @@ import { UtilNavComponent } from './global/util-nav/util-nav.component';
 import { MenuComponent } from './global/menu/menu.component';
 import { FooterComponent } from './global/footer/footer.component';
 import { HomeModule } from './home/home.module'
+import { NewsModule } from './news/news.module'
+import  {HttpClientModule } from '@angular/common/http'
 
 @NgModule({
   declarations: [
@@ -25,11 +27,11 @@ import { HomeModule } from './home/home.module'
   ],
   imports: [
     BrowserModule,
+    HttpClientModule,
     FontAwesomeModule,
     HomeModule,
+    NewsModule,
     AppRoutingModule,
-
-
   ],
   providers: [],
   bootstrap: [AppComponent]
