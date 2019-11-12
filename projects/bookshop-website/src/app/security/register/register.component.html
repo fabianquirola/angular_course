@@ -6,17 +6,15 @@
         </div>
         <div class ='card-body'>
             <form>
-
-                    <div class ='form-group'>
-                            <label for="register-email">Email</label>
-                            <input  id='register-email' type="email" name='email'
-                            [(ngModel)]="email"
-                            #emailField="ngModel"
-                            class ='form-control'
-                            required>
-                    </div>
-                    <div *ngIf="emailField.error">Content to render when condition is true.</div>
-                </form>
+                <div class="form-group ">
+                    <label for="register-email">Email: </label>
+                    <input id="register-email" type="email" name="email" class="form-control"
+                     [(ngModel)]="email" #emailField="ngModel" required email />
+                     <div *ngIf="emailField.errors.required" style='color:red;'>Email is required</div>
+                     <div *ngIf="emailField.errors.email" style='color:red;'>Email is invalid</div>
+                    <!--<code><pre>{{emailField.errors | json}}</pre></code>  -->
+                </div>
+            </form>
         </div>
     </div>
     </div>
