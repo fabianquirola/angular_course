@@ -1,0 +1,23 @@
+<section class='bs-register'>
+    <div class = 'bs-container'>
+    <div class ='card'>
+        <div class ='card-header'>
+            <h3>Register</h3>
+        </div>
+        <div class ='card-body'>
+            <form>
+
+                    <div class ='form-group'>
+                            <label for="register-email">Email</label>
+                            <input  id='register-email' type="email" name='email'
+                            [(ngModel)]="email"
+                            #emailField="ngModel"
+                            class ='form-control'
+                            required>
+                    </div>
+                    <div *ngIf="emailField.error">Content to render when condition is true.</div>
+                </form>
+        </div>
+    </div>
+    </div>
+</section>

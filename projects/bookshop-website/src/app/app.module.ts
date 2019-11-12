@@ -12,6 +12,7 @@ import { MenuComponent } from './global/menu/menu.component';
 import { FooterComponent } from './global/footer/footer.component';
 import { HomeModule } from './home/home.module'
 import { NewsModule } from './news/news.module'
+import { SecurityModule } from './security/security.module'
 import  {HttpClientModule } from '@angular/common/http'
 
 @NgModule({
@@ -31,6 +32,7 @@ import  {HttpClientModule } from '@angular/common/http'
     FontAwesomeModule,
     HomeModule,
     NewsModule,
+    SecurityModule,
     AppRoutingModule,
   ],
   providers: [],

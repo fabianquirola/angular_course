@@ -1,0 +1,23 @@
+<section class="bs-book-detail">
+    <div class="bs-container">
+      <app-book *ngIf="book$ | async as book" [book]="book">
+
+        <form class ='bs-book-detail__form'>
+          <div class="input-group">
+              <div class="input-group-prepend">
+                <button class="btn btn-outline-secondary" type="button"
+                (click)="decrementQty()">-</button>
+              </div>
+              <input name="qty" type="text" class="form-control" placeholder="" [(ngModel)]="quantity" >
+              <div class="input-group-append">
+                  <button class="btn btn-outline-secondary" type="button"
+                  (click)="incrementQty()">+</button>
+                </div>
+            </div>
+
+                <button type='submit' class ='btn btn-primary'>Add to Cart</button>
+          </form>
+      </app-book>
+    </div>
+
+</section>
