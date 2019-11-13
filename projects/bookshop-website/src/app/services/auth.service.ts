@@ -1,12 +1,14 @@
 import { Injectable } from '@angular/core';
 
 import { User } from '../models/user';
-import { Observable } from 'rxjs';
+import { Observable, BehaviorSubject } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
-import { Credentials } from 'crypto';
-import { LoginResponse } from '../models/login-response';
 
-const URL = 'http://immense-forest-87642.herokuapp.com/users';
+import { LoginResponse } from '../models/login-response';
+import { Credentials } from '../models/credentials';
+import { UserProfile } from '../models/user-profile';
+
+const URL = 'https://immense-forest-87642.herokuapp.com/users';
 
 
 @Injectable({
@@ -14,13 +16,40 @@ const URL = 'http://immense-forest-87642.herokuapp.com/users';
 })
 export class AuthService {
 
-  constructor(private http:HttpClient) { }
+  currentUserProfileSubject: BehaviorSubject<UserProfile>;
+  currentUserProfile: Observable<UserProfile>
+
+  constructor(private http:HttpClient) {
+    this.currentUserProfileSubject = new BehaviorSubject(null);
+    this.currentUserProfile = this.currentUserProfileSubject.asObservable();
+  }
+
+  getCurrentUserProfile(): Observable<UserProfile> {
+    return this.currentUserProfile;
+  }
 
   register(user:User):Observable<User>{
     return this.http.post<User>(URL,user);
   }
+// /:Observable<LoginResponse>
+  login(credentials:Credentials){
 
-  login(credentials:Credentials):Observable<LoginResponse>{
+
     return this.http.post<LoginResponse>(`${URL}/login`,credentials)
+    .subscribe((res:LoginResponse)=>{
+      localStorage.setItem('TOKEN',res.token);
+
+      //users/me
+      this.http.get(`${URL}/me`)
+      .subscribe((userProfile:UserProfile)=>{
+        this.currentUserProfileSubject.next(userProfile);
+      })
+
+      //this.currentUserProfileSubject.next({id:'1',name:'user 1'});
+    })
   }
+
+  /*get(user:User):Observable<User>{
+    return this.http.get<LoginResponse>(`${URL}/users/`,User)
+  }*/
 }
