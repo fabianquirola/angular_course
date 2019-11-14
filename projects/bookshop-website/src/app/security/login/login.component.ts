@@ -4,6 +4,7 @@ import { AuthService } from '../../services/auth.service';
 import { Router } from '@angular/router';
 import { NgForm } from '@angular/forms';
 import { LoginResponse } from '../../models/login-response';
+import { UserProfile } from '../../models/user-profile';
 
 @Component({
   selector: 'app-login',
@@ -28,7 +29,7 @@ export class LoginComponent implements OnInit {
 
       this.authService.login(
         this.credentials
-      ).subscribe((response:LoginResponse)=>{
+      ).subscribe((response:UserProfile)=>{
         console.log(response);
         this.router.navigate(['home']);
       });
