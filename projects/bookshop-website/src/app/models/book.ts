@@ -1,7 +1,7 @@
 //http://immense-forest-87642.herokuapp.com/books
 //looback 4
 export interface Book {
-  id: number;
+  id?: number;
   title: string;
   author: string;
   price: number;
@@ -9,6 +9,6 @@ export interface Book {
   rating:number;
   description?:string;
   image?: string;
-  publishedDate:Date;
+  publishedDate?:Date;
 }
 

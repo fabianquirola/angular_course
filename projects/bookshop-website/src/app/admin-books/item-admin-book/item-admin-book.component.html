@@ -1,0 +1,15 @@
+
+ <tr class="bs-books__item" >
+<th scope="row">{{ book.id }}</th>
+<td>{{ book.title }}</td>
+<td>{{ book.author }}</td>
+<td>{{ book.price }}</td>
+<td><img [src]="book.image" class="bs-book__image" /></td>
+
+<td> <span class="bs-book__rating"><app-rating [value]='book.rating'></app-rating></span></td>
+
+
+<td> <ng-content #name>
+
+  </ng-content></td>
+</tr>

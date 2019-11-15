@@ -14,6 +14,7 @@ export class MenuComponent implements OnInit {
     {path:'/textbooks',label:'Textbooks'},
     {path:'/audiobooks',label:'Audiobooks'},
     {path:'/recomnmended',label:'Recommended'},
+    {path:'/admin-books',label:'Admin Books'},
   ]
   constructor() { }
 
